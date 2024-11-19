@@ -1,1 +1,1 @@
-# subscription-management-app
+# ING Floor Hackathon - Subscription Management Feature
