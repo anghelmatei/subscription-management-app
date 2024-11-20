@@ -51,7 +51,7 @@ class _SubscriptionInfoViewState extends State<SubscriptionInfoView> {
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },
-                                icon: Image.asset("assets/img/dorp_down.png",
+                                icon: Image.asset("assets/img/drop_down.png",
                                     width: 20,
                                     height: 20,
                                     color: TColor.gray30),
