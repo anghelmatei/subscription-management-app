@@ -15,7 +15,7 @@ class SegmentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(10),
       onTap: onPressed,
       child: Container(
         decoration: isActive
@@ -24,7 +24,7 @@ class SegmentButton extends StatelessWidget {
                   color: TColor.primary,
                 ),
                 color: TColor.primary,
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(10),
               )
             : null,
         alignment: Alignment.center,

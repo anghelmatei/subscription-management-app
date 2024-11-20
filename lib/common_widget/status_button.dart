@@ -52,11 +52,11 @@ class StatusButton extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            width: 60,
-            height: 1,
-            color: TColor.primary,
-          ),
+          // Container(
+          //   width: 60,
+          //   height: 1,
+          //   color: TColor.primary,
+          // ),
         ],
       ),
     );

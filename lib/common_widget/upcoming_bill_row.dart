@@ -33,14 +33,14 @@ class UpcomingBillRow extends StatelessWidget {
                 width: 40,
                 padding: const EdgeInsets.all(4),
                 decoration: BoxDecoration(
-                  color: TColor.primaryText,
+                  color: TColor.gray80.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 alignment: Alignment.center,
                 child: Column(
                   children: [
                     Text(
-                      "Nov",
+                      "Dec",
                       style: TextStyle(
                           color: TColor.primaryText,
                           fontSize: 10,

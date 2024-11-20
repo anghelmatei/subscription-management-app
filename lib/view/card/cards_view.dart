@@ -1,4 +1,6 @@
+import 'dart:math';
 
+import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -30,22 +32,22 @@ class _CardsViewState extends State<CardsView> {
 
   List carArr = [
     {
-      "name": "code for any1",
+      "name": "Credit card 1",
       "number": "**** **** **** 2197",
       "month_year": "08/27"
     },
     {
-      "name": "code for any2",
+      "name": "Debit card 1",
       "number": "**** **** **** 2198",
       "month_year": "09/27"
     },
     {
-      "name": "code for any3",
+      "name": "Credit card 2",
       "number": "**** **** **** 2297",
       "month_year": "07/27"
     },
     {
-      "name": "code for any4",
+      "name": "Debit card 2",
       "number": "**** **** **** 2397",
       "month_year": "05/27"
     },
@@ -108,7 +110,7 @@ class _CardsViewState extends State<CardsView> {
                   height: 115,
                 ),
                 Text(
-                  cObj["name"] ?? "Credit card ",
+                  cObj["name"] ?? "Code For Any",
                   style: TextStyle(
                       color: TColor.gray20,
                       fontSize: 12,
@@ -148,57 +150,24 @@ class _CardsViewState extends State<CardsView> {
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: TColor.gray,
+      backgroundColor: TColor.primary,
       body: SingleChildScrollView(
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
-            SizedBox(
+            Container(
               width: double.infinity,
               height: 600,
               child: buildSwiper(),
             ),
             Column(
               children: [
-                // SafeArea(
-                //   child: Stack(
-                //     alignment: Alignment.center,
-                //     children: [
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.center,
-                //         children: [
-                //           Text(
-                //             "Credit Cards",
-                //             style:
-                //                 TextStyle(color: TColor.gray30, fontSize: 16),
-                //           ),
-                //         ],
-                //       ),
-                //       // Row(
-                //       //   children: [
-                //       //     const Spacer(),
-                //       //     IconButton(
-                //       //         onPressed: () {
-                //       //           Navigator.push(
-                //       //               context,
-                //       //               MaterialPageRoute(
-                //       //                   builder: (context) =>
-                //       //                       const SettingsView()));
-                //       //         },
-                //       //         icon: Image.asset("assets/img/settings.png",
-                //       //             width: 25, height: 25, color: TColor.gray30))
-                //       //   ],
-                //       // ),
-                //     ],
-                //   ),
-                // ),
-
                 const SizedBox(
-                  height: 380,
+                  height: 550,
                 ),
 
                 Text(
-                  " ",
+                  "Subscriptions",
                   style: TextStyle(
                       color: TColor.white,
                       fontSize: 16,
@@ -220,59 +189,54 @@ class _CardsViewState extends State<CardsView> {
                 ),
 
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
 
                 Container(
                   height: 300,
                   decoration: BoxDecoration(
-                      color: TColor.gray70.withOpacity(0.5),
+                      color: Colors.white,
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(25),
                           topRight: Radius.circular(25))),
 
                   child: Column(children: [
                     Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 20),
-                        child: InkWell(
-                          borderRadius: BorderRadius.circular(16),
-                          onTap: () {},
-                          child: DottedBorder(
-                            dashPattern: const [5, 4],
-                            strokeWidth: 1,
-                            borderType: BorderType.RRect,
-                            radius: const Radius.circular(16),
-                            color: TColor.border.withOpacity(0.1),
-                            child: Container(
-                              height: 50,
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              alignment: Alignment.center,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Add new card",
-                                    style: TextStyle(
-                                        color: TColor.gray30,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  Image.asset(
-                                    "assets/img/add.png",
-                                    width: 12,
-                                    height: 12,
-                                    color: TColor.gray30,
-                                  )
-                                ],
-                              ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 20),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(16),
+                        onTap: () {},
+                          child: Container(
+                            height: 50,
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              color: TColor.primary,
+                            ),
+                            alignment: Alignment.center,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Add new card",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Image.asset(
+                                  "assets/img/add.png",
+                                  width: 12,
+                                  height: 12,
+                                  color: Colors.white,
+                                )
+                              ],
                             ),
                           ),
-                        ),
+                        // ),
                       ),
+                    ),
                   ],),
                 )
               ],

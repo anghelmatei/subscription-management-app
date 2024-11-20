@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math.dart';
+import 'package:vector_math/vector_math.dart'; // Remove if not required.
+import 'dart:math'; // Import this to use cos() and sin().
 import '../common/color_extension.dart';
-
 
 class ArcValueModel {
   final Color color;
@@ -16,19 +16,18 @@ class CustomArc180Painter extends CustomPainter {
   final double width;
   final double bgWidth;
   final double blurWidth;
-  final double space;
   final List<ArcValueModel> drwArcs;
 
   CustomArc180Painter(
-      { required this.drwArcs, this.start = 0, this.end = 180, this.space = 5, this.width = 15, this.bgWidth = 10,  this.blurWidth = 4});
+      {required this.drwArcs, this.start = 0, this.end = 180, this.width = 15, this.bgWidth = 10, this.blurWidth = 4});
 
   @override
   void paint(Canvas canvas, Size size) {
     var rect = Rect.fromCircle(
-        center: Offset(size.width / 2, size.height ),
+        center: Offset(size.width / 2, size.height),
         radius: size.width / 2);
 
-    
+    // Background Arc
     Paint backgroundPaint = Paint();
     backgroundPaint.color = TColor.gray60.withOpacity(0.5);
     backgroundPaint.style = PaintingStyle.stroke;
@@ -36,37 +35,53 @@ class CustomArc180Painter extends CustomPainter {
     backgroundPaint.strokeCap = StrokeCap.round;
 
     var startVal = 180.0 + start;
-    var drawStart = startVal;
-    canvas.drawArc(
-        rect, radians(startVal), radians(180), false, backgroundPaint);
+    canvas.drawArc(rect, radians(startVal), radians(180), false, backgroundPaint);
 
+    double drawStart = startVal;
+
+    // Iterate through each arc
     for (var arcObj in drwArcs) {
-
-     
       Paint activePaint = Paint();
       activePaint.color = arcObj.color;
       activePaint.style = PaintingStyle.stroke;
       activePaint.strokeWidth = width;
       activePaint.strokeCap = StrokeCap.round;
 
+      // Draw Shadow Arc
       Paint shadowPaint = Paint()
         ..color = arcObj.color.withOpacity(0.3)
         ..style = PaintingStyle.stroke
         ..strokeWidth = width + blurWidth
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 5);
 
+      Path shadowPath = Path();
+      shadowPath.addArc(rect, radians(drawStart), radians(arcObj.value));
+      canvas.drawPath(shadowPath, shadowPaint);
 
-      //Draw Shadow Arc
-      Path path = Path();
-      path.addArc(rect, radians(drawStart), radians(arcObj.value - space ));
-      canvas.drawPath(path, shadowPaint);
+      // Draw Active Arc
+      canvas.drawArc(rect, radians(drawStart), radians(arcObj.value), false, activePaint);
 
-      canvas.drawArc(rect, radians(drawStart), radians(arcObj.value  - space ), false, activePaint);
+      // Draw a black line between arcs (to create the separation)
+      if (drawStart + arcObj.value < 180) {
+        Paint blackLinePaint = Paint()
+          ..color = TColor.primaryText // Use Colors from Material package
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1; // thin black line to separate arcs
 
-      drawStart = drawStart + arcObj.value + space;
+        // Compute the end point of the black line
+        double x1 = size.width / 2 + (size.width / 2) * cos(radians(drawStart + arcObj.value));
+        double y1 = size.height + (size.width / 2) * sin(radians(drawStart + arcObj.value));
+
+        canvas.drawLine(
+          Offset(size.width / 2, size.height), // Start at the center of the circle
+          Offset(x1, y1), // End at the computed point
+          blackLinePaint,
+        );
+      }
+
+      // Update drawStart for next arc
+      drawStart = drawStart + arcObj.value;
     }
-    
-    
   }
 
   @override

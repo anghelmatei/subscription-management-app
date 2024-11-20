@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trackizer/view/login/sign_up_view.dart';
 
 import '../../common/color_extension.dart';
-import '../../common_widget/secondary_boutton.dart';
+import '../../common_widget/secondary_button.dart';
 
 class SocialLoginView extends StatefulWidget {
   const SocialLoginView({super.key});
