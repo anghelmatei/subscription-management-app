@@ -39,14 +39,14 @@ class StatusButton extends StatelessWidget {
                   title,
                   style: TextStyle(
                       color: TColor.white,
-                      fontSize: 12,
+                      fontSize: 10,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
                   value,
                   style: TextStyle(
                       color: TColor.white,
-                      fontSize: 14,
+                      fontSize: 12,
                       fontWeight: FontWeight.w600),
                 ),
               ],

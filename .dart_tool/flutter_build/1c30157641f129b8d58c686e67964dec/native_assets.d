@@ -1,0 +1,1 @@
+ C:\\Users\\anghe\\OneDrive\\Desktop\\subscription-management-app\\.dart_tool\\flutter_build\\1c30157641f129b8d58c686e67964dec\\native_assets.yaml: 

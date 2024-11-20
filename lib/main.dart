@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trackizer/common/color_extension.dart';
-import 'package:trackizer/view/main_tab/main_tab_view.dart';
+import 'package:subscriptions/common/color_extension.dart';
+import 'package:subscriptions/view/main_tab/main_tab_view.dart';
 
 void main() {
   runApp(const MyApp());

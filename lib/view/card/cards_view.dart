@@ -1,11 +1,6 @@
-import 'dart:math';
-
-import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:trackizer/common/color_extension.dart';
-// import 'package:trackizer/view/settings/settings_view.dart';
+import 'package:subscriptions/common/color_extension.dart';
 
 class CardsView extends StatefulWidget {
   const CardsView({super.key});

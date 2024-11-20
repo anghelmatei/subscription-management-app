@@ -1,6 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:trackizer/common_widget/secondary_button.dart';
+import 'package:subscriptions/common_widget/secondary_button.dart';
 
 import '../../common/color_extension.dart';
 import '../../common_widget/item_row.dart';
@@ -25,7 +25,7 @@ class _SubscriptionInfoViewState extends State<SubscriptionInfoView> {
             alignment: Alignment.topCenter,
             children: [
               Container(
-                margin: const EdgeInsets.all(20),
+                margin: const EdgeInsets.fromLTRB(20, 60, 20, 20),
                 decoration: BoxDecoration(
                   color: const Color(0xff282833).withOpacity(0.9),
                   borderRadius: BorderRadius.circular(24),

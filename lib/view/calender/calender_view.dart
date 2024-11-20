@@ -1,9 +1,7 @@
 import 'dart:math';
 import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:flutter/material.dart';
-import 'package:trackizer/common/color_extension.dart';
-// import 'package:trackizer/view/settings/settings_view.dart';
-import '../../common_widget/subscription_cell.dart';
+import 'package:subscriptions/common/color_extension.dart';
 
 class CalenderView extends StatefulWidget {
   const CalenderView({super.key});
@@ -258,8 +256,8 @@ class _CalenderViewState extends State<CalenderView> {
                     // Subscription Icon (Larger size)
                     Image.asset(
                       sObj["icon"] ?? "",
-                      width: 80, // Larger icon
-                      height: 80,
+                      width: 60, // Larger icon
+                      height: 60,
                     ),
                     const SizedBox(height: 12),
                     // Subscription Name (Larger font size)
@@ -268,7 +266,7 @@ class _CalenderViewState extends State<CalenderView> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: TColor.primaryText,
-                        fontSize: 20, // Larger font for title
+                        fontSize: 14, // Larger font for title
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -278,18 +276,18 @@ class _CalenderViewState extends State<CalenderView> {
                       sObj["price"] ?? "",
                       style: TextStyle(
                         color: TColor.primaryText,
-                        fontSize: 18, // Larger font for price
+                        fontSize: 16, // Larger font for price
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 7),
                     // Subscription Date (Positioned at the bottom)
                     Spacer(),
                     Text(
                       sObj["date"] ?? "",
                       style: TextStyle(
                         color: TColor.primaryText,
-                        fontSize: 15,
+                        fontSize: 9,
                         fontWeight: FontWeight.w500,
                       ),
                     ),

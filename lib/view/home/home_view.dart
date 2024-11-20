@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trackizer/common/color_extension.dart';
+import 'package:subscriptions/common/color_extension.dart';
 import '../../common_widget/custom_arc_painter.dart';
 import '../../common_widget/segment_button.dart';
 import '../../common_widget/status_button.dart';
@@ -44,16 +44,15 @@ class _HomeViewState extends State<HomeView> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // Image.asset("assets/img/home_bg.png"),
                   Stack(
                     alignment: Alignment.topCenter,
                     children: [
                       Container(
-                        padding:  EdgeInsets.only(bottom: media.width * 0.05),
+                        padding: EdgeInsets.only(bottom: media.width * 0.05),
                         width: media.width * 0.72,
                         height: media.width * 0.72,
                         child: CustomPaint(
-                          painter: CustomArcPainter(end: 220, ),
+                          painter: CustomArcPainter(end: 220),
                         ),
                       ),
                     ],
@@ -66,7 +65,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       Image.asset("assets/img/app_logo.png",
                           width: media.width * 0.30, fit: BoxFit.contain),
-                       SizedBox(
+                      SizedBox(
                         height: media.width * 0.10,
                       ),
                       const Text(
@@ -79,7 +78,6 @@ class _HomeViewState extends State<HomeView> {
                       SizedBox(
                         height: media.width * 0.055,
                       ),
-
                       SizedBox(
                         height: media.width * 0.20,
                       ),
@@ -92,11 +90,12 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ],
                   ),
+                  // Added SizedBox to push the row of containers further down
                   SizedBox(
-                    height: media.width * 0.02,
+                    height: media.width * 0.60, // Adjust height as needed
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(0),
                     child: Column(
                       children: [
                         const Spacer(),
@@ -131,12 +130,12 @@ class _HomeViewState extends State<HomeView> {
                                 statusColor: TColor.primary,
                                 onPressed: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -169,14 +168,14 @@ class _HomeViewState extends State<HomeView> {
                         });
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
             if (isSubscription)
               ListView.builder(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: subArr.length,
@@ -186,15 +185,18 @@ class _HomeViewState extends State<HomeView> {
                     return SubScriptionHomeRow(
                       sObj: sObj,
                       onPressed: () {
-
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => SubscriptionInfoView( sObj: sObj ) ));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    SubscriptionInfoView(sObj: sObj)));
                       },
                     );
                   }),
             if (!isSubscription)
               ListView.builder(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: subArr.length,
